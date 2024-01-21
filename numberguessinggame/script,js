@@ -1,0 +1,86 @@
+let username ="";
+let username_submit= document.getElementById(`name-submit`);
+let wel_msg = document.getElementById(`welcome-msg`);
+let text_box = document.getElementById(`player-name`); 
+
+username_submit.onclick=function(){
+    username =text_box.value;
+    text_box.value="";
+    username = username.trim().charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+    wel_msg.textContent=`Welcome ${username}`
+}
+
+let difficulty_submit = document.getElementById(`difficulty-submit`);
+let difficulty = "easy";
+let difficulty_radio = document.getElementsByName(`difficulty`);
+let minnum =1;
+let maxnum;
+let play = false;
+let answer;
+let hint_display =document.getElementById(`display`);
+while(username=""){
+    window.alert("Please Enter a Username first");
+}
+
+difficulty_submit.onclick = function () {
+    for (var i = 0; i < difficulty_radio.length; i++) {
+        if (difficulty_radio[i].checked) {
+            difficulty = difficulty_radio[i].id;
+        }
+    }
+    if(difficulty=="easy"){
+        maxnum =100;
+    }
+    else {
+        if(difficulty == "medium"){
+             maxnum = 1000;
+        }
+        else{ 
+            maxnum = 10000;
+        }
+    }
+    play=true;
+    answer = Math.floor(Math.random()*(maxnum -minnum +1)) +minnum;
+    hint_display.textContent = `Enter a Number between ${minnum} and ${maxnum}`;
+};
+
+function updateHint(message) {
+    hint_display.style.opacity = '0';
+    setTimeout(() => {
+      hint_display.textContent = message;
+      hint_display.style.opacity = '1';
+    }, 500); // Adjust the timeout to match your CSS transition duration
+  }
+let guess = document.getElementById(`input-guess`);
+let guess_submit = document.getElementById(`submit-guess`);
+    guess_submit.onclick = function(){
+        let userguess =Number(guess.value);
+        if (userguess == answer){
+            updateHint("!!!Congratulations You won !!!!!");
+            guess.value ="";
+            play =false;
+        }
+        else if (isNaN(userguess)){
+            guess.value ="";
+            updateHint(`Enter a Numeric Value`);
+            setTimeout(() =>{
+                updateHint(`Enter a Number between ${minnum} and ${maxnum}`);
+            },2000);
+        }
+        else if(userguess <minnum || userguess > maxnum){
+            guess.value="";
+            updateHint("Please enter a number within valid range !!");
+            setTimeout(() => {
+                updateHint(`Enter a Number between ${minnum} and ${maxnum}`);
+            }, 2000);
+        }
+        else if (userguess < answer){
+            updateHint("Try a higher number");
+            guess.value ="";
+        }
+        else if (userguess > answer){
+            updateHint( "Try a lower number");
+            guess.value ="";
+        }
+    }
+

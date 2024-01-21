@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guessing game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="player-details" class="inputbox">
+        <label for="name">Input name - </label>
+        <input type="text" id="player-name">
+        <button id="name-submit" class="Submitbtn">Submit</button>
+    </div>
+    <br><br>
+    <p id="welcome-msg"></p>
+    <br>
+    <hr>
+    <div id="difficulty-choose">
+        <label for="difficulty">Choose Difficulty</label>
+        <input type="radio" name="difficulty" id="easy" checked>
+        <label for="easy">Easy</label>
+        <input type="radio" name="difficulty" id="medium">
+        <label for="medium">Medium</label>
+        <input type="radio" name="difficulty" id="hard">
+        <label for="hard">Hard</label>
+        <button id="difficulty-submit" class="Submitbtn">PLAY</button>
+    </div>
+    <br>
+    <br>
+    <div id="user-input" class="inputbox">
+        <label for="user-input">Enter your guess - </label>
+        <input type="text" name="user-input" id="input-guess">
+    </div>
+    <center><button class="Submitbtn" id="submit-guess">Submit - Guess</button></center>
+    <br><br>
+    <center><p id="display"></p></center>
+    <script src="script,js"></script>
+</body>
+</html>
