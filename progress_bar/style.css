@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Montserrat:wght@300&family=Roboto:ital@1&family=Tilt+Neon&display=swap');
+
+
+*{
+    /* if we add any padding or any border to any of the elemert it doesnt affect its width  */
+    box-sizing: border-box;
+
+
+}
+
+/* font-family: 'Roboto', sans-serif;: This sets the preferred font to 'Roboto', and if it's not available, it falls back to a generic sans-serif font.
+
+margin: 0;: Removes any default margin on the body element.
+
+display: flex;: Makes the body a flex container.
+
+flex-direction: column;: Aligns the child elements vertically in a column.
+
+align-items: center;: Centers the child elements along the horizontal axis.
+
+justify-content: center;: Centers the child elements along the vertical axis.
+
+height: 100vh;: Sets the height of the body to 100% of the viewport height.
+
+overflow: hidden;: Hides any overflowing content. */
+body{
+    background-color: aliceblue;
+    font-family: 'Roboto' , sans-serif ;
+    margin: 0;
+    /* center everything  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.container{
+    text-align: center;
+}
+
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 35px;
+    max-width: 100%;
+    width: 350px;
+}
+
+.progress-container::before{
+    content: '';
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index:-1 ;
+    transition: .4s ease;
+}
+
+.progress{
+    background-color: #3498db;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index:-1 ;
+    transition: .4s ease;
+}
+
+.circle{
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s ease;
+}
+
+.circle.active{
+    border-color: #3498db;
+}
+
+.btn{
+    background-color: #3498db;
+    color: #fff;
+    border: 0;
+    padding: 10px 30px;
+    margin: 10px;
+    font-size: 14px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.btn:active{
+    transform: scale(.95);
+}
+.btn:focus{
+    outline: 0;
+}
+.btn:disabled{
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
